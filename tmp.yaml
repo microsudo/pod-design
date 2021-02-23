@@ -1,0 +1,61 @@
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  annotations:
+    autoscaling.alpha.kubernetes.io/conditions: '[{"type":"AbleToScale","status":"False","lastTransitionTime":"2021-02-23T02:32:22Z","reason":"FailedGetScale","message":"the
+      HPA controller was unable to get the target''s current scale: deployments/scale.apps
+      \"php-apache\" not found"},{"type":"ScalingActive","status":"True","lastTransitionTime":"2021-02-23T01:30:07Z","reason":"ValidMetricFound","message":"the
+      HPA was able to successfully calculate a replica count from cpu resource utilization
+      (percentage of request)"},{"type":"ScalingLimited","status":"True","lastTransitionTime":"2021-02-23T01:42:02Z","reason":"TooFewReplicas","message":"the
+      desired replica count is less than the minimum replica count"}]'
+    autoscaling.alpha.kubernetes.io/current-metrics: '[{"type":"Resource","resource":{"name":"cpu","currentAverageUtilization":0,"currentAverageValue":"0"}}]'
+  creationTimestamp: "2021-02-23T01:27:27Z"
+  managedFields:
+  - apiVersion: autoscaling/v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:spec:
+        f:maxReplicas: {}
+        f:minReplicas: {}
+        f:scaleTargetRef:
+          f:apiVersion: {}
+          f:kind: {}
+          f:name: {}
+        f:targetCPUUtilizationPercentage: {}
+    manager: kubectl
+    operation: Update
+    time: "2021-02-23T01:27:27Z"
+  - apiVersion: autoscaling/v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:annotations:
+          .: {}
+          f:autoscaling.alpha.kubernetes.io/conditions: {}
+          f:autoscaling.alpha.kubernetes.io/current-metrics: {}
+      f:status:
+        f:currentCPUUtilizationPercentage: {}
+        f:currentReplicas: {}
+        f:desiredReplicas: {}
+        f:lastScaleTime: {}
+    manager: kube-controller-manager
+    operation: Update
+    time: "2021-02-23T02:32:22Z"
+  name: php-apache
+  namespace: default
+  resourceVersion: "3883"
+  selfLink: /apis/autoscaling/v1/namespaces/default/horizontalpodautoscalers/php-apache
+  uid: bac92998-0d14-4785-8003-313aa9e73e08
+spec:
+  maxReplicas: 10
+  minReplicas: 1
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: php-apache
+  targetCPUUtilizationPercentage: 50
+status:
+  currentCPUUtilizationPercentage: 0
+  currentReplicas: 1
+  desiredReplicas: 1
+  lastScaleTime: "2021-02-23T01:42:02Z"
