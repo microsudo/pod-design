@@ -1,9 +1,0 @@
-== Init Container
-
-=== More Information
-
-* https://github.com/k8spatterns/examples/tree/master/structural/InitContainer[Init Container example]
-* https://kubernetes.io/docs/concepts/workloads/pods/init-containers/[Init Containers]
-* https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-initialization/#creating-a-pod-that-has-an-init-container[Configuring Pod Initialization]
-* http://blog.javascriptroom.com/2013/01/21/the-initializer-pattern/[The Initializer Pattern in JavaScript]
-* https://developer.apple.com/library/content/documentation/General/Conceptual/CocoaEncyclopedia/Initialization/Initialization.html[Object Initialization in Swift]
